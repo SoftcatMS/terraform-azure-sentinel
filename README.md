@@ -20,7 +20,6 @@ Perform the following commands on the root folder:
 - `terraform destroy` to destroy the built infrastructure
 
 
-
 < use terraform-docs to create Inputs and Outpus documentation >  [terraform-docs](https://github.com/terraform-docs/terraform-docs)
 
 `terraform-docs markdown .`
