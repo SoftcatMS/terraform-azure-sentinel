@@ -1,6 +1,14 @@
-module "<UNIQUE_MODULE_NAME>" {
-  source = "github.com/global-build/<MODULE_NAME>/?ref=master"
+resource "azurerm_resource_group" "sentinel-test-basic" {
+  name = "rg-test-basic-sentinel"
+  location = "UKSouth"
+}
 
-  # Add required attributes to show example
+module "sentinel" {
+  source = "github.com/SoftcatMS/terraform-azure-sentinel"
+  resource_group_name = azurerm_resource_group.sentinel-test-basic.name
+  log_analytics_workspace_name = "UKS-LOG-SOFTCAT-SENTINEL-TEST-BASIC"
 
+  depends_on = [
+    azurerm_resource_group.sentinel-test-basic
+  ]
 }

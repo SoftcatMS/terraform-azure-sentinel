@@ -1,12 +1,11 @@
-# Module name using following format (<provider>-terraform-<description>, example: azure-terraform-vnet) 
+# terraform-azure-sentinel
 
 <Module description>
 
 It supports creating:
 
-- list resources created by module
-
-<Describe any submodules> 
+- Azure Log Analytics Workspace
+- Azure Sentinel Solution enabled on the Workspace
 
 ## Usage Examples
 You can go to the tests folder, or review the examples folder: [examples](./examples)
@@ -37,21 +36,37 @@ Azure
 - [Terraform Provider for Azure](https://github.com/hashicorp/terraform-provider-azurerm)
 - CLI Tool [az](https://docs.microsoft.com/en-us/cli/azure/)
 
-AWS  
-- [Terraform Provider for AWS](https://github.com/hashicorp/terraform-provider-aws)
-- CLI Tool [aws-cli](https://aws.amazon.com/cli/)
+## Providers
 
-GCP  
-- [Terraform Provider for GCP](https://github.com/hashicorp/terraform-provider-google)
-- [Terraform Provider for GCP Beta](https://github.com/terraform-providers/terraform-provider-google-beta)
-- CLI Tool [gcloud](https://cloud.google.com/sdk/gcloud/)
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
 
+## Modules
 
-<Any configuration needed on cloud plartform such as:>
-- Service Principals
-- IAM Roles
-- Service Accounts
+No modules.
 
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_log_analytics_solution.sentinel](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) | resource |
+| [azurerm_log_analytics_workspace.sentinel](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) | resource |
+| [azurerm_resource_group.sentinel](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/resource_group) | data source |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_log_analytics_workspace_name"></a> [log\_analytics\_workspace\_name](#input\_log\_analytics\_workspace\_name) | Name of log analytics workspace to be created for Sentinel storage | `string` | n/a | yes |
+| <a name="input_log_analytics_workspace_retention"></a> [log\_analytics\_workspace\_retention](#input\_log\_analytics\_workspace\_retention) | Retention period in days to retain data in the log analytics workspace | `string` | `"30"` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of the resource group to be imported. | `string` | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#output\_log\_analytics\_workspace\_id) | The log analytics workspace id that is created and setup for Sentinel |
 
 ## Contributing
 
