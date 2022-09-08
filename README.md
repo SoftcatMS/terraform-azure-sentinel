@@ -36,6 +36,9 @@ Azure
 - [Terraform Provider for Azure](https://github.com/hashicorp/terraform-provider-azurerm)
 - CLI Tool [az](https://docs.microsoft.com/en-us/cli/azure/)
 
+### Permissions
+In order to deploy Azure Sentinel connectors certain additional roles and permissions may be required depending on the connector deployed. In the advanced test the Office 365 connector is deployed and the service principal used needs to be a memebr of the 'Global Administrator' or 'Securtiy Administraotr' role in the tenant for this to be enabled successfully with terraform
+
 ## Providers
 
 | Name | Version |
