@@ -3,7 +3,7 @@ data "azurerm_resource_group" "sentinel" {
 }
 
 resource "azurerm_log_analytics_workspace" "sentinel" {
-  name = var.log_analytics_workspace_name
+  name = join("-", ["LAW-ManagedSentinel", (var.customer_name)])
   location = data.azurerm_resource_group.sentinel.location
   resource_group_name = data.azurerm_resource_group.sentinel.name
   sku = "PerGB2018"
