@@ -11,3 +11,4 @@ output "log_analytics_workspace_name" {
 output "log_analytics_id" {
   value       = azurerm_log_analytics_workspace.id
   description = "The log analytics resource id"
+}
