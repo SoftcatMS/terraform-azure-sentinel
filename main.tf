@@ -19,7 +19,7 @@ resource "azurerm_log_analytics_solution" "sentinel" {
   workspace_name        = azurerm_log_analytics_workspace.sentinel.name
   tags                  = var.tags
   plan {
-    publisher = "Microsoft"
-    product = "OMSGallery/SecurityInsights"
+    publisher           = "Microsoft"
+    product             = "OMSGallery/SecurityInsights"
   }
 }
