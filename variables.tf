@@ -14,4 +14,12 @@ variable "log_analytics_workspace_retention" {
   default = "30"
 }
 
+variable "tags" {
+  description = "The tags to associate with your Sentinel resource."
+  type        = map(string)
+
+  default = {
+    ENV = "test"
+  }
+}
 
